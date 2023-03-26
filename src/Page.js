@@ -1,13 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Link, NavLink, } from "react-router-dom";
+import i18next from "i18next";
+i18next.changeLanguage()
 
 export default function Page({children}){
+  const { t } =useTranslation();
     return(
         <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container px-4 px-lg-5">
-      <a className="navbar-brand" href="#!">
-        Start Bootstrap
-      </a>
+      <Link to="/home" className="navbar-brand">
+        Tech Shop
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -26,7 +30,7 @@ export default function Page({children}){
               to="/home" 
               className={({isActive}) => isActive? "nav-link active" : "nav-link" }
               aria-current="page">
-              Home
+              {t('home')}
             </NavLink>
           </li>
           <li className="nav-item">
@@ -34,14 +38,14 @@ export default function Page({children}){
               to="/product" 
               className= {({isActive}) => isActive? "nav-link active" : "nav-link"}
               aria-current="page">
-              Products
+              {t('products')}
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink 
               to="/about"
               className={({isActive}) => isActive? "nav-link active" : "nav-link"}>
-              About
+              {t('about')}
             </NavLink>
           </li>
           <li className="nav-item dropdown">
@@ -77,10 +81,14 @@ export default function Page({children}){
             </ul>
           </li>
         </ul>
+
+        <button onClick={() => i18next.changeLanguage('ka')}>GE</button>
+        <button onClick={() => i18next.changeLanguage('en')}>ENG</button>
         <form className="d-flex">
+
           <button className="btn btn-outline-dark" type="submit">
             <i className="bi-cart-fill me-1" />
-            Cart
+            {t('cart')}
             <span className="badge bg-dark text-white ms-1 rounded-pill">
               0
             </span>
@@ -93,7 +101,7 @@ export default function Page({children}){
          <footer className="py-5 bg-dark">
             <div className="container">
             <p className="m-0 text-center text-white">
-                Copyright © Your Website 2022
+                social media links
             </p>
             </div>
         </footer>

@@ -11290,7 +11290,23 @@ textarea.form-control-lg {
   margin-bottom:50px ;
 }
 img{
-  width:240px ;
-  height: 280px;
+  width:350px ;
+  height: 250px;
   object-fit: contain;
+}
+
+.header{
+  background-color: rgba(8,7,40,255);
+  text-align: center;
+  height: 33vh;
+  /* width: 100%; */
+}
+.cover_img{
+  width:90%;
+  height: 100%;
+}
+@media(max-width:1200px){
+  .header{
+  height: fit-content;
+  }
 }
